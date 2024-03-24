@@ -13,6 +13,7 @@ import Authlayout from "./Authlayout";
 import RTE from "./RTE";
 import PostForm from "./PostForm";
 import Loader from "./Loader";
+import ThemeIcon from "./ThemeIcon";
 
 export {
     Header,
@@ -29,5 +30,6 @@ export {
     Authlayout,
     RTE,
     PostForm,
-    Loader
+    Loader,
+    ThemeIcon
 }

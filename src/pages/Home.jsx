@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import appwriteService from '../appwrite/Service';
-import { PostCard, Container } from '../components';
+import { PostCard, Container, Loader } from '../components';
 import { useSelector } from 'react-redux';
 
 function Home() {
 
     const [posts, setPosts] = useState([]);
+    // const [loader, setLoader] = useState(true)
     const userStatus = useSelector(state => state.auth.status)
 
     useEffect(() => {
@@ -17,6 +18,7 @@ function Home() {
                 }
             })()
         }
+        // setLoader(false)
     }, [userStatus])
 
     // if (userStatus) {

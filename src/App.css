@@ -77,6 +77,20 @@
   }
 }
 
-textarea {
-  resize: none !important;
+.browser-css-theme div,
+.browser-css-theme p {
+  color: white !important;
+}
+
+.browser-css-theme h1,
+.browser-css-theme h2,
+.browser-css-theme h3,
+.browser-css-theme h4,
+.browser-css-theme h5,
+.browser-css-theme h6 {
+  color: #191919 !important;
+}
+
+.browser-css-theme > h2 {
+  color: #c5c5c5 !important;
 }

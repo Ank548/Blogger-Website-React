@@ -4,6 +4,7 @@ import appwriteService from '../appwrite/Service'
 import { useSelector } from 'react-redux'
 import parse from 'html-react-parser'
 import { Container, Button, Loader } from '../components'
+import { useRef } from 'react'
 
 function Post() {
     const [post, setPost] = useState(null)
@@ -11,6 +12,8 @@ function Post() {
     const { slug } = useParams()
     const navigate = useNavigate()
     const userData = useSelector(state => state.auth.userData)
+    const themeMode = useSelector(state => state.theme.theme)
+    const RTETheme = useRef()
 
     const isAuthor = post && userData ? post.userId === userData.$id : false
 
@@ -30,6 +33,17 @@ function Post() {
 
         })()
     }, [slug, navigate])
+
+    useEffect(() => {
+        if (RTETheme.current) {
+            RTETheme.current.classList.remove("browser-css-theme")
+            if (themeMode === "dark") {
+                RTETheme.current.classList.add("browser-css-theme")
+            } else {
+                RTETheme.current.classList.remove("browser-css-theme")
+            }
+        }
+    }, [themeMode, post])
 
     const Delete = async () => {
         setLoader(true)
@@ -70,9 +84,9 @@ function Post() {
                     )}
                 </div>
                 <div className="w-full mb-6">
-                    <h1 className="text-2xl font-bold">{post.title}</h1>
+                    <h1 className="text-2xl font-bold dark:text-slate-900">{post.title}</h1>
                 </div>
-                <div className="browser-css">
+                <div className="browser-css" ref={RTETheme}>
                     {parse(post.content)}
                 </div>
             </Container>
