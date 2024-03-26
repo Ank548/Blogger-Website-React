@@ -44,7 +44,7 @@ function App() {
     <div className='min-h-screen flex flex-wrap content-between bg-gray-50 dark:bg-dark-bg-main'>
       <div className='w-full block'>
         <Header />
-        <main className={userStatus ? `min-h-[calc(100vh-350.075px)]` : `min-h-[calc(100vh-370.075px)]`} style={{ marginTop: '71.675px' }}>
+        <main className='min-h-[calc(100vh-350.075px)]' style={{ marginTop: '71.675px' }}>
           <Outlet />
         </main>
         <Footer />
