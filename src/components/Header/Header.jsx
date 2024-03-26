@@ -74,7 +74,7 @@ function Header() {
                 <LogoutBtn />
               </li>
             )}
-            <li className='ml-2'>
+            <li className='ml-2 px-6 py-2 select-none'>
               <label className="relative inline-flex items-center cursor-pointer">
                 <input
                   type="checkbox"
